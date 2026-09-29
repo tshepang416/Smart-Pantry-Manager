@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Smart Pantry Manager</string>
+    <string name="pantry_title">My Pantry</string>
+    <string name="suggested_title">Suggested Recipes</string>
+    <string name="settings_title">Settings</string>
+    <string name="add_ingredient">Add ingredient</string>
+    <string name="no_recipes_match">No recipes match your pantry yet - add more ingredients</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="ingredient_name_hint">Ingredient name</string>
+    <string name="quantity_hint">Quantity</string>
+    <string name="unit_hint">Unit</string>
+    <string name="expiry_date_hint">Expiry date (optional)</string>
+    <string name="expiry_alert_switch">Expiring soon alerts</string>
+    <string name="default_recipe_method">Cook as usual and enjoy.</string>
+    <string name="bottom_nav_pantry">Pantry</string>
+    <string name="bottom_nav_suggested">Recipes</string>
+    <string name="bottom_nav_settings">Settings</string>
+</resources>
