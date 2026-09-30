@@ -14,3 +14,6 @@ A second table stores recipe metadata: id, recipe name, ingredient list, and met
 
 ## 5. SQLite lifecycle hooks
 The `onCreate()` method creates both tables and calls a seed routine. The `onUpgrade()` method drops the tables and recreates them so the app can be updated cleanly when the schema changes.
+
+## 6. Pantry CRUD insert and update logic
+The helper implements insert and update methods using `ContentValues`, which is the standard Android pattern for inserting rows into SQLite tables. This lets the UI save ingredient records without writing raw SQL for every operation.
