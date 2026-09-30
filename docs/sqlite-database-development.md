@@ -11,3 +11,6 @@ The pantry table stores each ingredient with an auto-increment id, a required na
 
 ## 4. Recipes table schema
 A second table stores recipe metadata: id, recipe name, ingredient list, and method. This is separate from pantry items so the app can keep suggestions independent from the user inventory.
+
+## 5. SQLite lifecycle hooks
+The `onCreate()` method creates both tables and calls a seed routine. The `onUpgrade()` method drops the tables and recreates them so the app can be updated cleanly when the schema changes.
