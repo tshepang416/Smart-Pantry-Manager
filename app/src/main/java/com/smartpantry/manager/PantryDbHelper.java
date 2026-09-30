@@ -120,17 +120,22 @@ public class PantryDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.query(TABLE_PANTRY, null, null, null, null, null, "name ASC");
 
-        if (cursor != null) {
-            while (cursor.moveToNext()) {
-                Ingredient ingredient = new Ingredient();
-                ingredient.setId(cursor.getLong(cursor.getColumnIndexOrThrow("id")));
-                ingredient.setName(cursor.getString(cursor.getColumnIndexOrThrow("name")));
-                ingredient.setQuantity(cursor.getDouble(cursor.getColumnIndexOrThrow("quantity")));
-                ingredient.setUnit(cursor.getString(cursor.getColumnIndexOrThrow("unit")));
-                ingredient.setExpiryDate(cursor.getString(cursor.getColumnIndexOrThrow("expiry_date")));
-                ingredients.add(ingredient);
+        try {
+            if (cursor != null) {
+                while (cursor.moveToNext()) {
+                    Ingredient ingredient = new Ingredient();
+                    ingredient.setId(cursor.getLong(cursor.getColumnIndexOrThrow("id")));
+                    ingredient.setName(cursor.getString(cursor.getColumnIndexOrThrow("name")));
+                    ingredient.setQuantity(cursor.getDouble(cursor.getColumnIndexOrThrow("quantity")));
+                    ingredient.setUnit(cursor.getString(cursor.getColumnIndexOrThrow("unit")));
+                    ingredient.setExpiryDate(cursor.getString(cursor.getColumnIndexOrThrow("expiry_date")));
+                    ingredients.add(ingredient);
+                }
             }
-            cursor.close();
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
         }
 
         return ingredients;
@@ -140,15 +145,20 @@ public class PantryDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.query(TABLE_PANTRY, null, "id = ?", new String[]{String.valueOf(id)}, null, null, null);
 
-        if (cursor != null && cursor.moveToFirst()) {
-            Ingredient ingredient = new Ingredient();
-            ingredient.setId(cursor.getLong(cursor.getColumnIndexOrThrow("id")));
-            ingredient.setName(cursor.getString(cursor.getColumnIndexOrThrow("name")));
-            ingredient.setQuantity(cursor.getDouble(cursor.getColumnIndexOrThrow("quantity")));
-            ingredient.setUnit(cursor.getString(cursor.getColumnIndexOrThrow("unit")));
-            ingredient.setExpiryDate(cursor.getString(cursor.getColumnIndexOrThrow("expiry_date")));
-            cursor.close();
-            return ingredient;
+        try {
+            if (cursor != null && cursor.moveToFirst()) {
+                Ingredient ingredient = new Ingredient();
+                ingredient.setId(cursor.getLong(cursor.getColumnIndexOrThrow("id")));
+                ingredient.setName(cursor.getString(cursor.getColumnIndexOrThrow("name")));
+                ingredient.setQuantity(cursor.getDouble(cursor.getColumnIndexOrThrow("quantity")));
+                ingredient.setUnit(cursor.getString(cursor.getColumnIndexOrThrow("unit")));
+                ingredient.setExpiryDate(cursor.getString(cursor.getColumnIndexOrThrow("expiry_date")));
+                return ingredient;
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
         }
 
         return null;
@@ -159,16 +169,21 @@ public class PantryDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.query(TABLE_RECIPES, null, null, null, null, null, "name ASC");
 
-        if (cursor != null) {
-            while (cursor.moveToNext()) {
-                Recipe recipe = new Recipe();
-                recipe.setId(cursor.getLong(cursor.getColumnIndexOrThrow("id")));
-                recipe.setName(cursor.getString(cursor.getColumnIndexOrThrow("name")));
-                recipe.setIngredients(cursor.getString(cursor.getColumnIndexOrThrow("ingredients")));
-                recipe.setMethod(cursor.getString(cursor.getColumnIndexOrThrow("method")));
-                recipes.add(recipe);
+        try {
+            if (cursor != null) {
+                while (cursor.moveToNext()) {
+                    Recipe recipe = new Recipe();
+                    recipe.setId(cursor.getLong(cursor.getColumnIndexOrThrow("id")));
+                    recipe.setName(cursor.getString(cursor.getColumnIndexOrThrow("name")));
+                    recipe.setIngredients(cursor.getString(cursor.getColumnIndexOrThrow("ingredients")));
+                    recipe.setMethod(cursor.getString(cursor.getColumnIndexOrThrow("method")));
+                    recipes.add(recipe);
+                }
             }
-            cursor.close();
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
         }
 
         return recipes;
@@ -178,14 +193,19 @@ public class PantryDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.query(TABLE_RECIPES, null, "id = ?", new String[]{String.valueOf(id)}, null, null, null);
 
-        if (cursor != null && cursor.moveToFirst()) {
-            Recipe recipe = new Recipe();
-            recipe.setId(cursor.getLong(cursor.getColumnIndexOrThrow("id")));
-            recipe.setName(cursor.getString(cursor.getColumnIndexOrThrow("name")));
-            recipe.setIngredients(cursor.getString(cursor.getColumnIndexOrThrow("ingredients")));
-            recipe.setMethod(cursor.getString(cursor.getColumnIndexOrThrow("method")));
-            cursor.close();
-            return recipe;
+        try {
+            if (cursor != null && cursor.moveToFirst()) {
+                Recipe recipe = new Recipe();
+                recipe.setId(cursor.getLong(cursor.getColumnIndexOrThrow("id")));
+                recipe.setName(cursor.getString(cursor.getColumnIndexOrThrow("name")));
+                recipe.setIngredients(cursor.getString(cursor.getColumnIndexOrThrow("ingredients")));
+                recipe.setMethod(cursor.getString(cursor.getColumnIndexOrThrow("method")));
+                return recipe;
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
         }
 
         return null;
