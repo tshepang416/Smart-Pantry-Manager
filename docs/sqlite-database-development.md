@@ -20,3 +20,6 @@ The helper implements insert and update methods using `ContentValues`, which is 
 
 ## 7. Pantry read and delete logic
 The helper adds delete and select methods by using `db.delete(...)` and `db.query(...)` with a `Cursor`. The read flow converts rows into `Ingredient` objects so the pantry screen can render each item.
+
+## 8. Recipe seed data and retrieval
+Recipe records are preloaded with default meal suggestions to support the recipe suggestion feature. The helper includes a `seedRecipes()` routine and query methods to read recipe details by id or list them alphabetically.
