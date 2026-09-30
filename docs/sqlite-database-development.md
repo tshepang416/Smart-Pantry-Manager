@@ -17,3 +17,6 @@ The `onCreate()` method creates both tables and calls a seed routine. The `onUpg
 
 ## 6. Pantry CRUD insert and update logic
 The helper implements insert and update methods using `ContentValues`, which is the standard Android pattern for inserting rows into SQLite tables. This lets the UI save ingredient records without writing raw SQL for every operation.
+
+## 7. Pantry read and delete logic
+The helper adds delete and select methods by using `db.delete(...)` and `db.query(...)` with a `Cursor`. The read flow converts rows into `Ingredient` objects so the pantry screen can render each item.
