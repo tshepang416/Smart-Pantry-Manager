@@ -8,3 +8,6 @@ The project uses a custom `PantryDbHelper` class extending `SQLiteOpenHelper`. T
 
 ## 3. Pantry table schema
 The pantry table stores each ingredient with an auto-increment id, a required name, quantity, optional unit, and expiry date. This gives us a simple structure for the pantry list and for saving ingredient details during add/edit flows.
+
+## 4. Recipes table schema
+A second table stores recipe metadata: id, recipe name, ingredient list, and method. This is separate from pantry items so the app can keep suggestions independent from the user inventory.
