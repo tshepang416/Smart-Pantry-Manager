@@ -29,3 +29,6 @@ The pantry activity creates the database helper once and loads ingredient data d
 
 ## 10. Validation and empty-state handling
 The ingredient screen validates required fields before saving. It also checks for empty pantry state so the UI can show a friendly prompt when the database has no items yet.
+
+## 11. Final SQLite walkthrough
+This database layer is a small but complete SQLite implementation: schema creation, seed data, insert/update/delete operations, and read queries. It is enough to support local pantry management and recipe suggestions in the Android app.
