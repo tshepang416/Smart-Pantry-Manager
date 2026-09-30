@@ -23,3 +23,6 @@ The helper adds delete and select methods by using `db.delete(...)` and `db.quer
 
 ## 8. Recipe seed data and retrieval
 Recipe records are preloaded with default meal suggestions to support the recipe suggestion feature. The helper includes a `seedRecipes()` routine and query methods to read recipe details by id or list them alphabetically.
+
+## 9. UI integration with pantry activity
+The pantry activity creates the database helper once and loads ingredient data during startup and resume. This keeps the list synchronized with the database when the user adds, edits, or deletes ingredients.
