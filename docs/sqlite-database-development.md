@@ -26,3 +26,6 @@ Recipe records are preloaded with default meal suggestions to support the recipe
 
 ## 9. UI integration with pantry activity
 The pantry activity creates the database helper once and loads ingredient data during startup and resume. This keeps the list synchronized with the database when the user adds, edits, or deletes ingredients.
+
+## 10. Validation and empty-state handling
+The ingredient screen validates required fields before saving. It also checks for empty pantry state so the UI can show a friendly prompt when the database has no items yet.
